@@ -1,0 +1,2 @@
+const items=['Chicken Biryani','Mutton Biryani','Veg Biryani','Paneer Biryani','Kebabs','Desserts','Raita'];
+export function Marquee(){return <div className="overflow-hidden border-y border-[#D4AF37]/20 py-5"><div className="animate-[marquee_22s_linear_infinite] whitespace-nowrap text-2xl font-semibold text-[#D4AF37]">{[...items,...items,...items].map((i,idx)=><span className="mx-8" key={idx}>✦ {i}</span>)}</div><style>{`@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}`}</style></div>}

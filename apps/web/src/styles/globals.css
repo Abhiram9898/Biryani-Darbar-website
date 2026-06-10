@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+:root {
+  --bg: #0d0d0d;
+  --card: #171717;
+  --gold: #d4af37;
+  --gold2: #ffb347;
+  --white: #f8f8f8;
+  --gray: #9ca3af;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: radial-gradient(circle at top, #22190b 0, #0d0d0d 42%);
+  color: var(--white);
+  font-family: Poppins, system-ui;
+  overflow-x: hidden;
+  transition: background .35s ease, color .35s ease;
+}
+button, a { -webkit-tap-highlight-color: transparent; }
+button { cursor: pointer; }
+.form-select {
+  color: #f8f8f8;
+  color-scheme: dark;
+  cursor: pointer;
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+.form-select:focus {
+  box-shadow: 0 0 0 1px rgba(212, 175, 55, .7);
+}
+.form-select option {
+  background: #171717;
+  color: #f8f8f8;
+}
+.form-select option:disabled {
+  color: #9ca3af;
+}
+.font-display { font-family: 'Playfair Display', serif; }
+.glass {
+  background: rgba(23, 23, 23, .55);
+  backdrop-filter: blur(22px);
+  border: 1px solid rgba(212, 175, 55, .16);
+}
+.gold-text {
+  background: linear-gradient(135deg, #d4af37, #ffb347);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+.premium-card {
+  background: linear-gradient(145deg, rgba(255, 255, 255, .05), rgba(255, 255, 255, .015));
+  border: 1px solid rgba(212, 175, 55, .15);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, .35);
+  border-radius: 28px;
+}
+.shimmer {
+  background: linear-gradient(90deg, #171717 25%, #262626 37%, #171717 63%);
+  background-size: 400% 100%;
+  animation: shimmer 1.4s infinite;
+}
+.steam { filter: blur(12px); animation: steam 4s infinite ease-in-out; }
+
+html.light body {
+  background: radial-gradient(circle at top, #fff1c7 0, #fffaf0 45%);
+  color: #241c12;
+}
+html.light .glass {
+  background: rgba(255, 255, 255, .78);
+  border-color: rgba(117, 83, 18, .18);
+  box-shadow: 0 12px 35px rgba(86, 61, 14, .08);
+}
+html.light .premium-card {
+  background: linear-gradient(145deg, rgba(255, 255, 255, .94), rgba(255, 247, 226, .88));
+  border-color: rgba(117, 83, 18, .16);
+  box-shadow: 0 24px 70px rgba(86, 61, 14, .12);
+}
+html.light .text-zinc-300 { color: #52525b; }
+html.light .text-zinc-400 { color: #71717a; }
+html.light .text-zinc-500 { color: #71717a; }
+html.light .bg-white\/10 { background: rgba(38, 28, 12, .07); }
+html.light .form-select {
+  color: #241c12;
+  color-scheme: light;
+}
+html.light .form-select option {
+  background: #fffaf0;
+  color: #241c12;
+}
+html.light .form-select option:disabled {
+  color: #71717a;
+}
+
+@keyframes shimmer {
+  0% { background-position: 100% 0; }
+  100% { background-position: -100% 0; }
+}
+@keyframes steam {
+  0% { transform: translateY(0); opacity: .15; }
+  50% { opacity: .55; }
+  100% { transform: translateY(-80px); opacity: 0; }
+}
