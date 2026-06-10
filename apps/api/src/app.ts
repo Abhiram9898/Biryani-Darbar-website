@@ -20,7 +20,14 @@ export function createApp() {
   const webDist = fileURLToPath(new URL('../../web/dist', import.meta.url));
   app.set('trust proxy', 1);
   app.disable('x-powered-by');
-  app.use(helmet({ crossOriginResourcePolicy: { policy: 'cross-origin' } }));
+  app.use(helmet({
+    crossOriginResourcePolicy: { policy: 'cross-origin' },
+    contentSecurityPolicy: {
+      directives: {
+        frameSrc: ["'self'", 'https://www.google.com'],
+      },
+    },
+  }));
   app.use(cors((req, callback) => {
     const origin = req.header('Origin');
     let sameHost = false;

@@ -21,6 +21,12 @@ test('health endpoint is available', async () => {
   assert.deepEqual(await response.json(), { success: true, status: 'ok' });
 });
 
+test('content security policy allows the Google Maps embed', async () => {
+  const response = await fetch(`${baseUrl}/api/health`);
+  const policy = response.headers.get('content-security-policy') ?? '';
+  assert.match(policy, /frame-src 'self' https:\/\/www\.google\.com/);
+});
+
 test('invalid contact message is rejected before database access', async () => {
   const response = await fetch(`${baseUrl}/api/content/contact`, {
     method: 'POST',
