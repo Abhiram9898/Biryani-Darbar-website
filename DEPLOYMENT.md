@@ -19,6 +19,26 @@ This project is configured to run the website and API together as one Render web
 
 The Render service builds the React website, seeds the public MongoDB content, and starts the Express API. The React app uses `/api` on the same domain in production.
 
+If you created a Render Web Service manually instead of using the Blueprint, use these settings:
+
+```text
+Language: Node
+Build Command: npm ci --include=dev && npm run build
+Start Command: npm run seed && npm run start -w apps/api
+Health Check Path: /api/health
+```
+
+Add these environment variables:
+
+```text
+NODE_ENV=production
+NODE_VERSION=22
+MONGO_URI=your MongoDB Atlas connection string
+MONGO_DB_NAME=biryani-darbar
+```
+
+After changing Render settings, select **Manual Deploy**, then **Clear build cache & deploy**.
+
 ## 3. Buy A Domain
 
 Recommended domain styles:
